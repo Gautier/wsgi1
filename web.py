@@ -44,7 +44,7 @@ def app(environ, start_response):
 
     yield '</body></html>'
 
-PORT = int(os.environ["VCAP_APP_PORT"])
+PORT = int(os.environ.get("VCAP_APP_PORT", 8000))
 httpd = make_server('', PORT, app)
 print "Serving HTTP on port %d..." % PORT
 
